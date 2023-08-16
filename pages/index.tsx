@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Lottie from 'lottie-react'
 import houseAnimation from '../public/lotties/house.json'
 import pigeonsAnimation from '../public/lotties/pigeons.json'
+import teamworkAnimation from '../public/lotties/teamwork.json'
 
 const ProductSans = localFont({src: '../public/fonts/ProductSans-Regular.ttf'})
 
@@ -38,6 +39,13 @@ export default function Home() {
           <Lottie animationData={pigeonsAnimation} loop />
         </div>
       </div>
+
+      <footer className='flex justify-center relative mt-4'>
+        <div className='footer-circle'></div>
+        <div className='w-1/4 teamworkAnimation'>
+          <Lottie animationData={teamworkAnimation} loop />
+        </div>
+      </footer>
     </main>
   )
 }

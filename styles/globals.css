@@ -18,6 +18,23 @@
 }
 
 
+.footer-circle {
+  background: #4285F4;
+  width: 100%;
+  height: 50%;
+  border-top-right-radius: 30rem;
+  border-top-left-radius: 30rem;
+  position: absolute;
+  bottom: 0;
+}
+.teamworkAnimation {
+  background: white;
+  z-index: 1;
+  border-bottom-right-radius: 10rem;
+  border-bottom-left-radius: 10rem;
+}
+
+
 @media(max-width: 730px) {
   .mobile-display {
     display: block;
@@ -45,5 +62,12 @@
   }
   .houseAni.mobile-spacing {
     margin-bottom: 2rem;
+  }
+
+  .footer-circle {
+    height: 40%;
+  }
+  .teamworkAnimation {
+    width: 50%;
   }
 }
