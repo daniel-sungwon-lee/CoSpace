@@ -16,3 +16,34 @@
   background: #62E4D7;
   color: white;
 }
+
+
+@media(max-width: 730px) {
+  .mobile-display {
+    display: block;
+  }
+  .mobile-sizing {
+    width: 90%;
+  }
+  .mobile-spacing {
+    margin: auto;
+  }
+  .mobile-font {
+    font-size: 20px;
+    width: 70%;
+  }
+
+  .logoDiv.mobile-display {
+    margin-bottom: 2rem;
+  }
+  .mobile-title {
+    margin: 2rem;
+  }
+
+  .houseDiv.mobile-display {
+    margin-bottom: 5rem;
+  }
+  .houseAni.mobile-spacing {
+    margin-bottom: 2rem;
+  }
+}
