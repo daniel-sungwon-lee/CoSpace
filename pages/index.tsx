@@ -35,7 +35,8 @@ export default function Home() {
         </div>
 
         <div className='flex items-center justify-center mb-[8rem] mx-8 mobile-display'>
-          <p className='text-2xl w-1/2 ml-[4rem] mobile-font mobile-sizing mobile-spacing'>
+          <p className='text-2xl w-1/2 ml-[4rem] mobile-font mobile-sizing mobile-spacing
+           pigeonText'>
             Once connected, you can seemlessly communicate with each other to
             manage all things with no conflict
           </p>
