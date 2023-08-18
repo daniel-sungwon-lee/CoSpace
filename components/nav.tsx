@@ -13,12 +13,12 @@ export default function Nav() {
         <Link className="flex justify-center items-center ml-4" href="/">
           <Image src='/images/cospace.svg' alt='CoSpace logo' width={50} height={50}
           draggable={false} />
-          <div className="text-2xl ml-2 font-bold">CoSpace</div>
+          <div className="text-2xl ml-2 font-bold text-white">CoSpace</div>
         </Link>
 
         <div className='flex'>
           <Button className={ProductSans.className} sx={{color: 'white',
-           textTransform: 'none'}}>Get Started</Button>
+           textTransform: 'none', fontSize: '16px'}}>Get Started</Button>
           <div className="mx-1"></div>
           <Button className={ProductSans.className} sx={{color: 'white',
            textTransform: 'none'}}>Login</Button>
