@@ -19,7 +19,7 @@ export default function Home() {
           <div className='text-7xl font-bold text-center mb-4 mobile-title'>CoSpace</div>
           <div className='flex justify-center'>
             <Image src='/images/cospace.svg' alt='CoSpace logo' width={400} height={400}
-            draggable={false} />
+             draggable={false} />
           </div>
         </div>
 
