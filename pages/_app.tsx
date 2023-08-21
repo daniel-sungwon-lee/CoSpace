@@ -17,5 +17,5 @@ const app = initializeApp(firebaseConfig)
 //const analytics = getAnalytics(app)
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} firebase={app} />
 }
