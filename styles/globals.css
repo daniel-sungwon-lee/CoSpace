@@ -53,6 +53,14 @@ html {
 }
 
 
+.MuiTypography-root {
+  font-family: ProductSans;
+}
+.MuiPickersDay-root {
+  font-family: ProductSans;
+}
+
+
 @media(max-width: 730px) {
   .mobile-display {
     display: block;
