@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { CloseRounded } from "@mui/icons-material";
-import { Dialog, DialogActions, DialogTitle, IconButton, Slide } from "@mui/material";
+import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Slide } from "@mui/material";
 import { TransitionProps } from '@mui/material/transitions';
 
 const Transition = React.forwardRef(function Transition(
@@ -21,10 +21,20 @@ export default function Post ({open, setOpen} : {open: boolean, setOpen: Functio
         } else {
           setOpen(false)
         }
-       }} TransitionComponent={Transition}>
-        <DialogTitle>Post a new Space</DialogTitle>
+       }} TransitionComponent={Transition} PaperProps={{sx : {background: '#4285F4'}}}>
+        <DialogTitle sx={{background: 'white', margin: '2rem',
+         width: 'fit-content', borderRadius: '2rem'}}>
+          Post a new Space!
+        </DialogTitle>
 
-        <DialogActions sx={{position: 'absolute', top: '0.5rem', right: '0.5rem'}}>
+        <DialogContent sx={{background: 'white', borderRadius: '2rem', margin: '2rem'}}>
+          <div>
+            Form here!
+          </div>
+        </DialogContent>
+
+        <DialogActions sx={{position: 'absolute', top: '0.5rem', right: '0.5rem',
+         background: 'white', borderRadius: '2rem', padding: '0'}}>
           <IconButton color="error" onClick={() => setOpen(false)}>
             <CloseRounded color="error" />
           </IconButton>
