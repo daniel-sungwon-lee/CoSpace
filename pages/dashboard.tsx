@@ -10,11 +10,16 @@ import Post from "@/components/post";
 const ProductSans = localFont({ src: '../public/fonts/ProductSans-Regular.ttf' })
 
 export default function Dashboard () {
+  const [loaded, setLoaded] = useState(false)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
+    setLoaded(true)
 
-  })
+    if(loaded) {
+      document.querySelector('.MuiDateRangeCalendar-root').firstChild.remove()
+    }
+  },[loaded])
 
   return (
     <>
