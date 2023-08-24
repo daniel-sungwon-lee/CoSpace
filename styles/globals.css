@@ -59,6 +59,9 @@ html {
 .MuiPickersDay-root {
   font-family: ProductSans;
 }
+.MuiInputLabel-root {
+  font-family: ProductSans;
+}
 
 
 @media(max-width: 730px) {

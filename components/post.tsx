@@ -1,7 +1,15 @@
 import * as React from 'react'
-import { CloseRounded } from "@mui/icons-material";
-import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Slide } from "@mui/material";
+import { useState, useEffect } from 'react';
+import localFont from 'next/font/local';
+import { CloseRounded, PostAddRounded } from "@mui/icons-material";
+import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Slide, TextField } from "@mui/material";
 import { TransitionProps } from '@mui/material/transitions';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DateRangePicker, SingleInputDateRangeField } from '@mui/x-date-pickers-pro';
+import { LoadingButton } from '@mui/lab';
+
+const ProductSans = localFont({ src: '../public/fonts/ProductSans-Regular.ttf' })
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -13,6 +21,18 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function Post ({open, setOpen} : {open: boolean, setOpen: Function}) {
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+
+  })
+
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
+  }
+
   return (
     <>
       <Dialog fullScreen open={open} onClose={(event,reason)=> {
@@ -28,9 +48,28 @@ export default function Post ({open, setOpen} : {open: boolean, setOpen: Functio
         </DialogTitle>
 
         <DialogContent sx={{background: 'white', borderRadius: '2rem', margin: '2rem'}}>
-          <div>
-            Form here!
-          </div>
+          <form className='m-8' onSubmit={handleSubmit}>
+            <TextField label='Name of Space' variant='standard' fullWidth
+             value={name} onChange={(e) => setName(e.target.value)} />
+
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateRangePicker calendars={1} disablePast onOpen={() => {
+                //document.querySelector('.MuiDateRangeCalendar-root').firstChild.remove()
+               }} sx={{width: '100%', margin: '2rem 0 2rem'}}
+               slots={{field: SingleInputDateRangeField}} label='Date range' />
+            </LocalizationProvider>
+
+            <TextField label='Description' variant='standard' fullWidth value={description}
+             onChange={(e) => setDescription(e.target.value)} multiline minRows={3} />
+
+            <div className='flex justify-center'>
+              <LoadingButton variant='contained' loading={loading} loadingPosition='start'
+              startIcon={<PostAddRounded />} sx={{textTransform: 'none',
+              background: '#4285F4 !important', margin: '3rem'}}>
+                Post
+              </LoadingButton>
+            </div>
+          </form>
         </DialogContent>
 
         <DialogActions sx={{position: 'absolute', top: '0.5rem', right: '0.5rem',
