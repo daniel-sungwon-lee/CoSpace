@@ -82,7 +82,7 @@ export default function Post ({open, setOpen} : {open: boolean, setOpen: Functio
             </LocalizationProvider>
 
             <TextField label='Description' variant='standard' fullWidth value={description}
-             onChange={(e) => setDescription(e.target.value)} multiline minRows={3}
+             onChange={(e) => setDescription(e.target.value)} multiline minRows={5}
              required disabled={loading} InputLabelProps={{ required: false }}
              error={error} />
 

@@ -62,6 +62,12 @@ html {
 .MuiInputLabel-root {
   font-family: ProductSans;
 }
+.MuiInput-input {
+  font-family: ProductSans;
+}
+.MuiButtonBase-root.MuiButton-root {
+  font-family: ProductSans;
+}
 
 
 @media(max-width: 730px) {

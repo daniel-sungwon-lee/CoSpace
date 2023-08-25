@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import localFont from 'next/font/local';
-import { PostAddRounded } from "@mui/icons-material";
-import { Button, Card, CardContent, List } from "@mui/material";
+import { ConnectWithoutContactRounded, PostAddRounded } from "@mui/icons-material";
+import { Button, Card, CardContent, List, ListItem, ListItemAvatar } from "@mui/material";
 import { DateRangeCalendar } from "@mui/x-date-pickers-pro/DateRangeCalendar";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Post from "@/components/post";
+import Image from 'next/image';
+import { LoadingButton } from '@mui/lab'
 
 const ProductSans = localFont({ src: '../public/fonts/ProductSans-Regular.ttf' })
 
@@ -30,7 +32,7 @@ export default function Dashboard () {
             <h2 className="text-2xl">Nothing scheduled for today. 1 upcoming this week.</h2>
           </div>
 
-          <div className='m-12'>Scheduled stuff here</div>
+          <div className='m-12'>Scheduled stuff here...meetings?</div>
 
           <div className='flex justify-center'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -43,7 +45,31 @@ export default function Dashboard () {
           <CardContent>
             <h2>Available Spaces:</h2>
 
-            <List></List>
+            <List>
+              <ListItem className='flex flex-col my-8 p-7 rounded-lg'
+               sx={{background: 'rgb(173, 204, 246)'}}>
+                <div className='flex w-[100%] mb-6 flex-col'>
+                  <ListItemAvatar className='w-[100%] mb-6'>
+                    <Image width={200} height={200} src='/images/astronaut-alt.svg'
+                    draggable='false' alt='Image of Space' className='rounded-2xl' />
+                  </ListItemAvatar>
+
+                  <div className='w-[100%]'>
+                    <h1 className='text-2xl'>Name of Space</h1>
+                    <h2 className='text-xl mb-4'>Date range</h2>
+                    <h4>Descprition</h4>
+                  </div>
+                </div>
+
+                <div className='flex justify-center w-[100%]'>
+                  <LoadingButton variant='contained' loading={false} loadingPosition='start'
+                   startIcon={<ConnectWithoutContactRounded />} sx={{textTransform: 'none',
+                    background: '#4285F4 !important'}} type='submit'>
+                      Connect
+                  </LoadingButton>
+                </div>
+              </ListItem>
+            </List>
           </CardContent>
         </Card>
 
