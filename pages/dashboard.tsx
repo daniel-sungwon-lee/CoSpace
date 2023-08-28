@@ -50,7 +50,7 @@ export default function Dashboard () {
 
             <List>
               <ListItem className='flex flex-col my-8 p-7 rounded-lg'
-               sx={{background: 'rgb(173, 204, 246)'}}>
+               sx={{background: 'rgb(204 226 255)'}}>
                 <div className='flex w-[100%] mb-6 flex-col'>
                   <ListItemAvatar className='w-[100%] mb-6'>
                     <Image width={200} height={200} src='/images/astronaut-alt.svg'
