@@ -8,6 +8,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Post from "@/components/post";
 import Image from 'next/image';
 import { LoadingButton } from '@mui/lab'
+import Schedule from '@/components/schedule';
 
 const ProductSans = localFont({ src: '../public/fonts/ProductSans-Regular.ttf' })
 
@@ -32,7 +33,9 @@ export default function Dashboard () {
             <h2 className="text-2xl">Nothing scheduled for today. 1 upcoming this week.</h2>
           </div>
 
-          <div className='m-12'>Scheduled stuff here...meetings?</div>
+          <div className='m-12 w-[80%]'>
+            <Schedule />
+          </div>
 
           <div className='flex justify-center'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -43,7 +46,7 @@ export default function Dashboard () {
 
         <Card sx={{width: '80%'}} className="mb-10">
           <CardContent>
-            <h2>Available Spaces:</h2>
+            <h2 className='text-2xl'>Available Spaces:</h2>
 
             <List>
               <ListItem className='flex flex-col my-8 p-7 rounded-lg'
