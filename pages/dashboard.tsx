@@ -72,15 +72,41 @@ export default function Dashboard () {
                   </LoadingButton>
                 </div>
               </ListItem>
+
+              <ListItem className='flex flex-col my-8 p-7 rounded-lg'
+               sx={{background: 'rgb(204 226 255)'}}>
+                <div className='flex w-[100%] mb-6 flex-col'>
+                  <ListItemAvatar className='w-[100%] mb-6'>
+                    <Image width={200} height={200} src='/images/astronaut-alt.svg'
+                    draggable='false' alt='Image of Space' className='rounded-2xl' />
+                  </ListItemAvatar>
+
+                  <div className='w-[100%]'>
+                    <h1 className='text-2xl'>Name of Space</h1>
+                    <h2 className='text-xl mb-4'>Date range</h2>
+                    <h4>Descprition</h4>
+                  </div>
+                </div>
+
+                <div className='flex justify-center w-[100%]'>
+                  <LoadingButton variant='contained' loading={false} loadingPosition='start'
+                   startIcon={<ConnectWithoutContactRounded />} sx={{textTransform: 'none',
+                    background: '#4285F4 !important'}} type='submit'>
+                      Connect
+                  </LoadingButton>
+                </div>
+              </ListItem>
             </List>
           </CardContent>
         </Card>
 
-        <Button variant="contained" startIcon={<PostAddRounded />} sx={{
-          textTransform: 'none', backgroundColor: '#4285F4 !important'
-         }} onClick={()=> setOpen(true)}>
-          Post new
-        </Button>
+        <div className='my-12'>
+          <Button variant="contained" startIcon={<PostAddRounded />} sx={{
+            textTransform: 'none', backgroundColor: '#4285F4 !important'
+           }} onClick={()=> setOpen(true)}>
+            Post new
+          </Button>
+        </div>
 
         <Post open={open} setOpen={setOpen} />
       </div>
