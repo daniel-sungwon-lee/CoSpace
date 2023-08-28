@@ -1,14 +1,17 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react';
 import localFont from 'next/font/local';
-import { CloseRounded, PostAddRounded } from "@mui/icons-material";
-import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Slide, TextField } from "@mui/material";
+import { CloseRounded, PostAddRounded, UploadRounded } from "@mui/icons-material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Slide, TextField } from "@mui/material";
 import { TransitionProps } from '@mui/material/transitions';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateRangePicker, SingleInputDateRangeField } from '@mui/x-date-pickers-pro';
 import { LoadingButton } from '@mui/lab';
 import dayjs from 'dayjs';
+import { Uploader } from 'uploader';
+
+const uploader = Uploader({ apiKey: 'free' })
 
 const ProductSans = localFont({ src: '../public/fonts/ProductSans-Regular.ttf' })
 
@@ -46,6 +49,10 @@ export default function Post ({open, setOpen} : {open: boolean, setOpen: Functio
     //FireStore here?
   }
 
+  const handleUpload = () => {
+    uploader.open({ maxFileCount: 1 })
+  }
+
   return (
     <>
       <Dialog fullScreen open={open} onClose={(event,reason)=> {
@@ -80,6 +87,13 @@ export default function Post ({open, setOpen} : {open: boolean, setOpen: Functio
                disabled={loading} slotProps={{textField: {variant: 'standard',
                error: error}}} onChange={(newValue) => setDate(newValue)} />
             </LocalizationProvider>
+
+            <div className='w-[100%] flex justify-center my-4 border-dashed border-2 py-4'>
+              <Button onClick={handleUpload} sx={{textTransform: 'none'}}>
+                <UploadRounded />
+                <span className='ml-1'>Upload images here</span>
+              </Button>
+            </div>
 
             <TextField label='Description' variant='standard' fullWidth value={description}
              onChange={(e) => setDescription(e.target.value)} multiline minRows={5}
