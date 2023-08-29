@@ -68,6 +68,9 @@ html {
 .MuiButtonBase-root.MuiButton-root {
   font-family: ProductSans;
 }
+.MuiButtonBase-root.MuiTab-root {
+  font-family: ProductSans;
+}
 
 
 @media(max-width: 730px) {

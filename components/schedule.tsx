@@ -15,6 +15,19 @@ export default function Schedule () {
             <List>
               <ListItem>
                 <ListItemAvatar>
+                  <Avatar sx={{background: '#a4c090'}}>
+                    <CalendarMonthRounded />
+                  </Avatar>
+                </ListItemAvatar>
+
+                <div>
+                  <h1 className='text-xl'>Meeting with customer</h1>
+                  <h2 className='text-lg'>Communicate to connect your Space!</h2>
+                </div>
+              </ListItem>
+
+              <ListItem>
+                <ListItemAvatar>
                   <Avatar sx={{background: 'rgb(230, 158, 69)'}}>
                     <CalendarMonthRounded />
                   </Avatar>
