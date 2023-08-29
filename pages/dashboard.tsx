@@ -56,10 +56,10 @@ export default function Dashboard () {
             <TabContext value={page}>
               <Tabs onChange={(e, newValue) => setPage(newValue)} sx={{
                 background: 'rgb(41, 112, 204)', margin: '-16px -16px 0px'
-               }} variant='fullWidth' centered>
-                <Tab sx={{textTransform: 'none', color: page === '1' ? 'white'  : ''}}
+               }} variant='fullWidth' centered value={page}>
+                <Tab sx={{textTransform: 'none', color: page === '1' ? 'white !important'  : ''}}
                  label='Available Spaces' value='1' />
-                <Tab sx={{textTransform: 'none', color: page === '2' ? 'white' : ''}}
+                <Tab sx={{textTransform: 'none', color: page === '2' ? 'white !important' : ''}}
                  label ='Posted Spaces' value='2' />
               </Tabs>
 
