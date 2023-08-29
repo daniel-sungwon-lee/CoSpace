@@ -15,15 +15,21 @@ const ProductSans = localFont({ src: '../public/fonts/ProductSans-Regular.ttf' }
 export default function Dashboard () {
   const [loaded, setLoaded] = useState(false)
   const [open, setOpen] = useState(false)
-  //const [screenWidth, setScreenWidth] = useState(screen.availWidth)
+  const [screenWidth, setScreenWidth] = useState(null)
 
   const [page, setPage] = useState('1')
 
   useEffect(() => {
     setLoaded(true)
 
+    if(typeof window !== 'undefined') {
+      setScreenWidth(window.screen.availWidth)
+    }
+
     window.addEventListener('resize', (e) => {
-      //setScreenWidth(screen.availWidth)
+      if(typeof window !== 'undefined') {
+        setScreenWidth(window.screen.availWidth)
+      }
     })
 
     if(loaded) {
@@ -46,7 +52,7 @@ export default function Dashboard () {
 
           <div className='flex justify-center'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateRangeCalendar calendars={/*window.screen.width < 767 ? 1 : 2*/1} />
+              <DateRangeCalendar calendars={screenWidth < 767 ? 1 : 2} />
             </LocalizationProvider>
           </div>
         </div>
