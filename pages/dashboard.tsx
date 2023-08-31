@@ -86,7 +86,7 @@ export default function Dashboard () {
                       </div>
                     </div>
 
-                    <div className='flex justify-center w-[100%]'>
+                    <div className='flex justify-end w-[100%]'>
                       <LoadingButton variant='contained' loading={false} loadingPosition='start'
                        startIcon={<ConnectWithoutContactRounded />} sx={{textTransform: 'none',
                         background: '#01c566 !important'}} type='submit'>
@@ -110,7 +110,7 @@ export default function Dashboard () {
                       </div>
                     </div>
 
-                    <div className='flex justify-center w-[100%]'>
+                    <div className='flex justify-end w-[100%]'>
                       <LoadingButton variant='contained' loading={false} loadingPosition='start'
                        startIcon={<ConnectWithoutContactRounded />} sx={{textTransform: 'none',
                         background: '#01c566 !important'}} type='submit'>
