@@ -80,12 +80,17 @@ export default function Post ({open, setOpen} : {open: boolean, setOpen: Functio
              disabled={loading} InputLabelProps={{ required: false }} error={error} />
 
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateRangePicker value={date} calendars={1} disablePast onOpen={() => {
-                //document.querySelector('.MuiDateRangeCalendar-root').firstChild.remove()
-               }} sx={{width: '100%', margin: '2rem 0 2rem'}}
+              <DateRangePicker value={date} calendars={1} disablePast
+               sx={{width: '100%', margin: '2rem 0 2rem'}}
                slots={{field: SingleInputDateRangeField}} label='Date range'
-               disabled={loading} slotProps={{textField: {variant: 'standard',
-               error: error}}} onChange={(newValue) => setDate(newValue)} />
+               disabled={loading} slotProps={ {textField: {variant: 'standard',
+                error: error}, popper: {className: 'postDateRangeEdit'}, dialog :
+                {className: 'postDateRangeEdit'}} } onOpen={() => {
+                 setTimeout(() => {
+                  document.querySelector('.postDateRangeEdit .MuiDateRangeCalendar-root').firstChild.remove()
+                 }, 100)
+               }}
+               onChange={(newValue) => setDate(newValue)} />
             </LocalizationProvider>
 
             <div className='w-[100%] flex justify-center my-4 border-dashed border-2 py-4'>
