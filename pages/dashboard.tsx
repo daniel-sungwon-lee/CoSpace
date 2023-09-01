@@ -43,7 +43,7 @@ export default function Dashboard () {
         <div className="flex items-center w-[100%] justify-around mb-12 flex-col">
           <div className='w-[80%] mb-4'>
             <h1 className="text-4xl mb-4">Hello Username</h1>
-            <h2 className="text-2xl">1 scheduled for today. 2 upcoming this week.</h2>
+            <h2 className="text-2xl">1 scheduled for today, 2 upcoming this week.</h2>
           </div>
 
           <div className='m-12 w-[80%]'>
