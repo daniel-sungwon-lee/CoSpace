@@ -5,23 +5,16 @@ import houseAnimation from '../public/lotties/house.json'
 import pigeonsAnimation from '../public/lotties/pigeons.json'
 import teamworkAnimation from '../public/lotties/teamwork.json'
 import Nav from '@/components/nav'
-import firebaseui from 'firebaseui'
 import { getAuth } from 'firebase/auth'
 import { Button } from '@mui/material'
 
 const ProductSans = localFont({src: '../public/fonts/ProductSans-Regular.ttf'})
 
-//const ui = new firebaseui.auth.AuthUI(getAuth())
+const handleLogin = () => {
 
-// const handleLogin = () => {
-//   ui.start('#firebase-auth-container', {
-//     signInOptions: [
+}
 
-//     ]
-//   })
-// }
-
-export default function Home() {
+export default function Home({}) {
   return (
     <>
       <Nav />
@@ -62,7 +55,8 @@ export default function Home() {
           <h1 className='text-4xl mb-8'>Get started</h1>
 
           <div>
-            <Button sx={{background: 'rgb(216, 87, 93) !important'}} variant='contained'>
+            <Button sx={{background: 'rgb(216, 87, 93) !important'}}
+             onClick={handleLogin} variant='contained'>
               Login
             </Button>
           </div>

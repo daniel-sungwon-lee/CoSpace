@@ -4,7 +4,7 @@ import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
 
 const firebaseConfig = {
-  apiKey: process.env.apiKey,
+  apiKey: "AIzaSyAokHmNLNnbAESWr582pIHBcMNkkUC-FGs",
   authDomain: "cospace-ds3.firebaseapp.com",
   projectId: "cospace-ds3",
   storageBucket: "cospace-ds3.appspot.com",
