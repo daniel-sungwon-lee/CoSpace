@@ -5,16 +5,44 @@ import houseAnimation from '../public/lotties/house.json'
 import pigeonsAnimation from '../public/lotties/pigeons.json'
 import teamworkAnimation from '../public/lotties/teamwork.json'
 import Nav from '@/components/nav'
-import { getAuth } from 'firebase/auth'
-import { Button } from '@mui/material'
+import { Button, Dialog, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material'
+
+import { getAuth, connectAuthEmulator, signInWithEmailAndPassword } from 'firebase/auth'
+import firebase from 'firebase'
+import firebaseui from 'firebaseui'
+import { useEffect, useState } from 'react'
+import Login from '@/components/login'
+import { LoginRounded } from '@mui/icons-material'
 
 const ProductSans = localFont({src: '../public/fonts/ProductSans-Regular.ttf'})
 
-const handleLogin = () => {
+export default function Home({firebase}) {
+  const [loaded, setLoaded] = useState(false)
+  const [open, setOpen] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-}
+  useEffect(() => {
+    setLoaded(true)
+  },[loaded])
 
-export default function Home({}) {
+  const handleLogin = (firebase) => {
+    setOpen(true)
+
+    const auth = getAuth(firebase)
+    connectAuthEmulator(auth, 'http://localhost:3000/')
+
+     signInWithEmailAndPassword(auth, email, password)
+       .then((userCredential) => {
+         const user = userCredential.user
+        setEmail(email)
+        setPassword(password)
+       })
+       .catch((error) => {
+         console.error(error.message)
+     })
+  }
+
   return (
     <>
       <Nav />
@@ -56,10 +84,35 @@ export default function Home({}) {
 
           <div>
             <Button sx={{background: 'rgb(216, 87, 93) !important'}}
-             onClick={handleLogin} variant='contained'>
+             onClick={() => handleLogin(firebase)} variant='contained'>
               Login
             </Button>
           </div>
+
+          <Dialog open={open} onClose={() => setOpen(false)}>
+            <DialogTitle>Login</DialogTitle>
+
+            <DialogContent>
+              <DialogContentText>
+                <LoginRounded className='mb-3' sx={{color:'black', fontSize:'40px'}} />
+              </DialogContentText>
+
+              <DialogContentText>
+                Login to your account
+              </DialogContentText>
+
+              <TextField className='mt-3' id='outlined-basic' label='Username'
+               required  variant='outlined' />
+              <TextField className='mt-3' id='outlined-basic' label='Password'
+               required  variant='outlined' />
+            </DialogContent>
+
+            <Button className='mt-4 mb-4 mx-5 ml-5 mr-5' sx={{background: 'rgb(216, 87, 93) !important',
+              color: 'white'
+             }} onClick={() => handleLogin(firebase)} variant='contained'>
+              Login
+            </Button>
+          </Dialog>
         </div>
 
         <footer className='flex justify-center relative mt-4'>
